@@ -1,0 +1,43 @@
+# Render static sites template for monorepo
+# Edit the repo and branch fields as needed, then use Render dashboard or CLI to create services.
+
+services:
+  - type: "static_site"
+    name: "elaris-customer-app"
+    repo: "<YOUR_REPO_URL>"
+    branch: "main"
+    buildCommand: "npm ci && npm run build:customer"
+    publishPath: "frontend/customer-app/dist"
+    env:
+      - key: "API_BASE_URL"
+        value: "https://api.example.com"
+
+  - type: "static_site"
+    name: "elaris-owner-app"
+    repo: "<YOUR_REPO_URL>"
+    branch: "main"
+    buildCommand: "npm ci && npm run build:owner"
+    publishPath: "frontend/owner-app/dist"
+    env:
+      - key: "API_BASE_URL"
+        value: "https://api.example.com"
+
+  - type: "static_site"
+    name: "elaris-staff-app"
+    repo: "<YOUR_REPO_URL>"
+    branch: "main"
+    buildCommand: "npm ci && npm run build:staff"
+    publishPath: "frontend/staff-app/dist"
+    env:
+      - key: "API_BASE_URL"
+        value: "https://api.example.com"
+
+  - type: "static_site"
+    name: "elaris-admin-app"
+    repo: "<YOUR_REPO_URL>"
+    branch: "main"
+    buildCommand: "npm ci && npm run build:admin"
+    publishPath: "frontend/admin-app/dist"
+    env:
+      - key: "API_BASE_URL"
+        value: "https://api.example.com"

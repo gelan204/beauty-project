@@ -1,0 +1,26 @@
+{
+  "name": "elaris",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Elaris — Salon Booking System",
+  "workspaces": [
+    "backend",
+    "packages/shared-ui",
+    "frontend/customer-app",
+    "frontend/owner-app",
+    "frontend/staff-app",
+    "frontend/admin-app"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:customer": "npm run dev --workspace=frontend/customer-app",
+    "dev:owner": "npm run dev --workspace=frontend/owner-app",
+    "dev:staff": "npm run dev --workspace=frontend/staff-app",
+    "dev:admin": "npm run dev --workspace=frontend/admin-app",
+    "seed": "npm run seed --workspace=backend",
+    "build:customer": "npm run build --workspace=frontend/customer-app",
+    "build:owner": "npm run build --workspace=frontend/owner-app",
+    "build:staff": "npm run build --workspace=frontend/staff-app",
+    "build:admin": "npm run build --workspace=frontend/admin-app"
+  }
+}

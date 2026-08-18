@@ -1,0 +1,19 @@
+{
+  "name": "@elaris/shared-ui",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./styles": "./src/styles/tokens.css"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "lucide-react": "^0.469.0"
+  }
+}

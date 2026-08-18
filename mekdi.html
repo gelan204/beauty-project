@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260817-05-91af805","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/7949ff62d67710d5.telemetry_sdk.js" integrity="sha512-KIvXA82Di44YY/RH9/63A9MuTuavYgDFG8PfErJn7Wli4K0LAOk+coo/aPXk3+ZNL96nHh9VYD4PE+fLes+laQ=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elaris — Beauty, beautifully booked.</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,500;9..144,600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#24201d;--cream:#fbf8f3;--paper:#fffdf9;--sand:#eee5d8;--bronze:#a16e45;--line:#e8dfd4;--muted:#716a63;--green:#437a58;--red:#a45345}
+    *{box-sizing:border-box} body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif}.serif{font-family:"Fraunces",serif}
+    .screen{display:none;animation:rise .3s ease both}.screen.active{display:block}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .soft-card{background:var(--paper);border:1px solid var(--line);border-radius:1.25rem;box-shadow:0 12px 32px rgba(71,50,33,.055)}
+    .btn-primary{background:#29231f;color:#fff;border-radius:999px;padding:.75rem 1.1rem;font-weight:600;font-size:.875rem;transition:.2s}.btn-primary:hover{background:var(--bronze);transform:translateY(-1px)}
+    .btn-secondary{border:1px solid #d8cdbf;color:#302b27;background:var(--paper);border-radius:999px;padding:.72rem 1.05rem;font-weight:600;font-size:.875rem}.btn-secondary:hover{border-color:var(--bronze);color:var(--bronze)}
+    .nav-link{font-size:.875rem;font-weight:600;color:#655d55}.nav-link:hover{color:var(--bronze)}
+    .portal{min-height:calc(100 * min(var(--vh, 1vh), 1vh));background:#f8f4ee}.portal-sidebar{background:#29231f;color:#f4ece3}.portal-link{display:flex;align-items:center;gap:.7rem;width:100%;border-radius:.8rem;padding:.72rem .8rem;color:#d8cec3;font-size:.875rem;text-align:left}.portal-link:hover,.portal-link.active{background:#44382f;color:#fff}.portal-view{display:none}.portal-view.active{display:block;animation:rise .25s ease both}
+    .stat{border:1px solid var(--line);border-radius:1rem;background:var(--paper);padding:1.15rem}.status{display:inline-flex;border-radius:999px;padding:.25rem .55rem;font-size:.7rem;font-weight:700}.confirmed{background:#e6f0e7;color:#397044}.pending{background:#f7ead5;color:#9b651c}.cancelled{background:#f7e5e1;color:#9c4b40}.completed{background:#eee8f6;color:#6b5888}
+    .chart-bars{height:170px;display:flex;align-items:end;gap:9px}.chart-bars span{flex:1;border-radius:8px 8px 2px 2px;background:#c9976c;min-width:14px}.choice{border:1px solid var(--line);background:var(--paper);border-radius:1rem;padding:1rem;transition:.2s;text-align:left}.choice:hover,.choice.selected{border-color:var(--bronze);background:#f7eee5}
+    .mobile-drawer{transform:translateX(-110%);transition:transform .25s ease}.mobile-drawer.open{transform:translateX(0)}.toast{transform:translateY(150%);transition:.25s}.toast.show{transform:translateY(0)}
+    @media(max-width:1023px){.portal-sidebar{position:fixed;z-index:50;inset:0 auto 0 0;width:275px;transform:translateX(-110%);transition:transform .25s ease}.portal-sidebar.open{transform:translateX(0)}.desktop-nav{display:none}}
+  </style>
+  <script src="/_sdk/0e8d3a91e1c6f495.data_sdk.js" type="text/javascript" integrity="sha512-c00oDoGjsMgluCLLEyVl3suwEkgjOGGplVFbsilUoBg4aMKNmsL3mwsc9r0dPn95qiSZyjBousQXgROkAW7p/w=="></script>
+  <script src="/_sdk/eba18683f23e5798.resizing_sdk.js" type="text/javascript" integrity="sha512-E0UWUllhwPXaNJtjyTKXWKrIE+FruPfFpO4mRmMDP2LI+U9bOizy5npCq6xx/JyWcvSK7D3TFf2wFR2Mha9kbA=="></script>
+ </head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(251, 248, 243);">
+  <header id="public-header" class="sticky top-0 z-30 border-b border-[#eee5da] bg-[#fbf8f3ee] backdrop-blur">
+   <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8"><button type="button" onclick="showScreen('home')" class="flex items-center" aria-label="Go to Elaris home"><img data-template-id="brand-logo" class="canva-image h-12 w-12 rounded-none object-contain" loading="lazy" src="canva://MAHSijQnV_4/1" alt="Elaris gold flame and lotus logo"></button>
+    <nav class="desktop-nav flex gap-7" aria-label="Main navigation"><button class="nav-link" onclick="showScreen('home')">Home</button><button class="nav-link" onclick="showScreen('services')">Services</button><button class="nav-link" onclick="showScreen('salons')">Salons</button>
+    </nav>
+    <div class="flex items-center gap-3"><button data-template-id="header-signin-button" class="canva-button text-sm font-semibold text-[#6f655c]" onclick="showScreen('role-entry')" style="color: rgb(111, 101, 92); font-weight: 600; font-style: normal; font-size: 16px;">Portal access</button> <button data-template-id="header-book-button" class="canva-button btn-primary hidden sm:block" onclick="showScreen('booking')" style="background: rgb(41, 35, 31); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Book Appointment</button>
+    </div>
+   </div>
+  </header>
+  <main>
+   <section id="home" class="screen active">
+    <div class="mx-auto max-w-7xl px-5 py-7 lg:px-8 lg:py-10">
+     <div class="grid overflow-hidden rounded-[2rem] bg-[#eee4d5] lg:grid-cols-[1.04fr_.96fr]">
+      <div class="flex min-h-[470px] flex-col justify-center px-7 py-14 sm:px-12 lg:px-16">
+       <p data-template-id="hero-eyebrow" class="canva-text text-xs font-bold uppercase tracking-[.2em]" style="color: rgb(161, 110, 69); font-weight: 700; font-style: normal; font-size: 16px;">Beauty, on your terms</p>
+       <h1 data-template-id="hero-title" class="canva-text serif mt-5 max-w-xl leading-[1.03]" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 58px; letter-spacing: -0.04rem; line-height: 1.03;">Your Beauty, Your Time.</h1>
+       <p data-template-id="hero-subtitle" class="canva-text mt-6 max-w-md leading-7" style="color: rgb(98, 89, 80); font-weight: 400; font-style: normal; font-size: 18px; line-height: 1.55;">Discover exceptional salons and book the care you deserve—simply, elegantly, and on your schedule.</p>
+       <div class="mt-8 flex flex-wrap gap-3">
+        <button data-template-id="hero-primary-cta" class="canva-button btn-primary" onclick="showScreen('booking')" style="background: rgb(41, 35, 31); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Book an Appointment</button><button data-template-id="hero-secondary-cta" class="canva-button btn-secondary" onclick="showScreen('services')" style="background: rgb(255, 253, 249); color: rgb(48, 43, 39); font-weight: 600; font-style: normal; font-size: 16px;">Explore Services</button>
+       </div>
+       <p class="mt-12 text-sm text-[#6d6258]">Trusted by 50,000+ beauty lovers</p>
+      </div>
+      <div class="relative min-h-[400px]">
+       <img data-template-id="hero-image" class="canva-image absolute inset-0 h-full w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1920" alt="Professional hair stylist washing woman's hair in a modern salon setting.">
+       <div class="absolute bottom-6 left-6 rounded-2xl bg-[#fffdf9e8] px-5 py-4">
+        <p class="text-xs uppercase tracking-widest text-[#8b7c6d]">Curated care</p>
+        <p class="mt-1 font-semibold">Beauty, on your schedule.</p>
+       </div>
+      </div>
+     </div>
+     <section class="py-16">
+      <div class="flex items-end justify-between">
+       <div>
+        <p data-template-id="services-eyebrow" class="canva-text text-xs font-bold uppercase tracking-[.18em]" style="color: rgb(161, 110, 69); font-weight: 700; font-style: normal; font-size: 16px;">Made for your ritual</p>
+        <h2 data-template-id="services-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 24px;">A little time for yourself.</h2>
+       </div><button class="text-sm font-semibold text-[#a16e45]" onclick="showScreen('services')">See all services →</button>
+      </div>
+      <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4"><button class="choice" onclick="bookService('Signature Cut &amp; Style')"><b>✂ Haircut</b><p class="mt-2 text-sm text-[#746a61]">Precision, tailored</p></button> <button class="choice" onclick="bookService('Dimensional Color')"><b>◒ Coloring</b><p class="mt-2 text-sm text-[#746a61]">Rich dimension</p></button> <button class="choice" onclick="bookService('Event Makeup')"><b>✦ Makeup</b><p class="mt-2 text-sm text-[#746a61]">Your best finish</p></button> <button class="choice" onclick="bookService('Glow Facial')"><b>☼ Facial</b><p class="mt-2 text-sm text-[#746a61]">Restorative care</p></button>
+      </div>
+     </section>
+     <section class="pb-16">
+      <div class="flex items-end justify-between">
+       <div>
+        <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Loved locally</p>
+        <h2 data-template-id="featured-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 24px;">Exceptional salons, nearby.</h2>
+       </div><button class="text-sm font-semibold text-[#a16e45]" onclick="showScreen('salons')">Explore salons →</button>
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+       <article class="soft-card overflow-hidden">
+        <img data-template-id="salon-image-1" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of barber tools on a stylish wooden counter.">
+        <div class="p-5">
+         <div class="flex justify-between">
+          <h3 class="font-semibold">Maison Muse</h3><span>★ 4.9</span>
+         </div>
+         <p class="mt-2 text-sm text-[#746a61]">Bole · Hair &amp; beauty</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">Book now →</button>
+        </div>
+       </article>
+       <article class="soft-card overflow-hidden">
+        <img data-template-id="salon-image-2" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/7750124/pexels-photo-7750124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Bright and elegant hair salon interior featuring modern lighting and round mirrors.">
+        <div class="p-5">
+         <div class="flex justify-between">
+          <h3 class="font-semibold">Soleil Studio</h3><span>★ 4.8</span>
+         </div>
+         <p class="mt-2 text-sm text-[#746a61]">Kazanchis · Nails &amp; skincare</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">Book now →</button>
+        </div>
+       </article>
+       <article class="soft-card overflow-hidden">
+        <img data-template-id="salon-image-3" class="canva-image h-52 w-full object-cover" loading="lazy" src="https://images.pexels.com/photos/1813272/pexels-photo-1813272.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="A bustling barbershop with two men getting haircuts.">
+        <div class="p-5">
+         <div class="flex justify-between">
+          <h3 class="font-semibold">The Grooming Room</h3><span>★ 4.9</span>
+         </div>
+         <p class="mt-2 text-sm text-[#746a61]">Old Airport · Grooming</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">Book now →</button>
+        </div>
+       </article>
+      </div>
+     </section>
+    </div>
+   </section>
+   <section id="services" class="screen">
+    <div class="mx-auto max-w-7xl px-5 py-12 lg:px-8">
+     <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Discover treatments</p>
+     <h1 data-template-id="services-page-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">Find your next ritual.</h1>
+     <p data-template-id="services-page-copy" class="canva-text mt-4 max-w-xl leading-7" style="color: rgb(103, 94, 85); font-weight: 400; font-style: normal; font-size: 17px;">From precision cuts to restorative skin treatments, discover thoughtful services by exceptional local experts.</p>
+     <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <button class="choice" onclick="bookService('Signature Cut &amp; Style')"><b>Signature Cut &amp; Style</b><span class="float-right text-[#a16e45]">650 ETB</span><p class="mt-3 text-sm text-[#746a61]">60 min · Maison Muse</p></button><button class="choice" onclick="bookService('Dimensional Color')"><b>Dimensional Color</b><span class="float-right text-[#a16e45]">1,800 ETB</span><p class="mt-3 text-sm text-[#746a61]">150 min · Maison Muse</p></button><button class="choice" onclick="bookService('Glow Facial')"><b>Glow Facial</b><span class="float-right text-[#a16e45]">950 ETB</span><p class="mt-3 text-sm text-[#746a61]">60 min · Soleil Studio</p></button>
+     </div>
+    </div>
+   </section>
+   <section id="salons" class="screen">
+    <div class="mx-auto max-w-7xl px-5 py-12 lg:px-8">
+     <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Near you</p>
+     <h1 data-template-id="salons-page-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">Your kind of salon.</h1>
+     <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="soft-card p-6">
+       <h3 class="font-semibold">Maison Muse</h3>
+       <p class="mt-2 text-sm text-[#746a61]">Bole · Open until 8 PM</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">View availability →</button>
+      </div>
+      <div class="soft-card p-6">
+       <h3 class="font-semibold">Soleil Studio</h3>
+       <p class="mt-2 text-sm text-[#746a61]">Kazanchis · Open until 7 PM</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">View availability →</button>
+      </div>
+      <div class="soft-card p-6">
+       <h3 class="font-semibold">The Grooming Room</h3>
+       <p class="mt-2 text-sm text-[#746a61]">Old Airport · Open until 9 PM</p><button class="mt-5 text-sm font-semibold text-[#a16e45]" onclick="showScreen('booking')">View availability →</button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="booking" class="screen">
+    <div class="mx-auto max-w-3xl px-5 py-12">
+     <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Book your moment</p>
+     <h1 data-template-id="booking-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">A little time, beautifully booked.</h1>
+     <div class="soft-card mt-8 p-6 sm:p-8">
+      <h2 class="serif text-2xl">Choose your service</h2>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2">
+       <button class="choice booking-service" onclick="chooseBooking(this,'Signature Cut &amp; Style','650 ETB')">Signature Cut &amp; Style <span class="float-right text-[#a16e45]">650 ETB</span></button><button class="choice booking-service" onclick="chooseBooking(this,'Dimensional Color','1,800 ETB')">Dimensional Color <span class="float-right text-[#a16e45]">1,800 ETB</span></button><button class="choice booking-service" onclick="chooseBooking(this,'Glow Facial','950 ETB')">Glow Facial <span class="float-right text-[#a16e45]">950 ETB</span></button>
+      </div>
+      <div class="mt-7 rounded-xl bg-[#f5ede3] p-5">
+       <p class="text-sm text-[#746a61]">Your appointment</p>
+       <p id="booking-summary" class="mt-2 font-semibold">Select a service to continue.</p>
+      </div><button data-template-id="booking-confirm-button" class="canva-button btn-primary mt-6" onclick="completeBooking()" style="background: rgb(41, 35, 31); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Reserve appointment</button>
+     </div>
+    </div>
+   </section>
+   <section id="role-entry" class="screen">
+    <div class="mx-auto grid max-w-6xl gap-9 px-5 py-12 lg:grid-cols-[.8fr_1.2fr] lg:py-20">
+     <div class="rounded-[2rem] bg-[#29231f] p-8 text-white sm:p-12">
+      <p class="text-xs font-bold uppercase tracking-[.18em] text-[#dcb789]">Elaris access</p>
+      <h1 data-template-id="role-heading" class="canva-text serif mt-5 leading-tight" style="color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 32px;">One platform for every beauty moment.</h1>
+      <p data-template-id="role-copy" class="canva-text mt-6 max-w-sm leading-7" style="color: rgb(224, 212, 199); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.55;">Choose the Elaris space designed for you—whether you are booking your next ritual, managing a salon, or guiding the marketplace.</p><button class="mt-10 text-sm font-semibold text-[#dcb789]" onclick="showScreen('home')">← Return to Elaris</button>
+     </div>
+     <div class="flex flex-col justify-center">
+      <p class="text-sm font-semibold text-[#a16e45]">Choose your experience</p>
+      <h2 class="serif mt-2 text-3xl">Where would you like to go?</h2>
+      <div class="mt-7 grid gap-4">
+       <button data-template-id="customer-role-card" class="canva-card choice flex items-center justify-between" onclick="enterPortal('customer')" style="background: rgb(255, 253, 249); color: rgb(36, 32, 29);"><span><b class="block">Customer</b><span class="mt-1 block text-sm text-[#746a61]">Manage appointments and favourites.</span></span><i data-lucide="arrow-right"></i></button><button data-template-id="owner-role-card" class="canva-card choice flex items-center justify-between" onclick="enterPortal('owner')" style="background: rgb(255, 253, 249); color: rgb(36, 32, 29);"><span><b class="block">Salon Owner</b><span class="mt-1 block text-sm text-[#746a61]">Run your salon day with clarity.</span></span><i data-lucide="arrow-right"></i></button><button data-template-id="admin-role-card" class="canva-card choice flex items-center justify-between" onclick="enterPortal('admin')" style="background: rgb(255, 253, 249); color: rgb(36, 32, 29);"><span><b class="block">Admin</b><span class="mt-1 block text-sm text-[#746a61]">Monitor the Elaris marketplace.</span></span><i data-lucide="arrow-right"></i></button>
+      </div>
+      <div class="mt-7 flex gap-5 text-sm">
+       <button class="font-semibold text-[#a16e45]" onclick="showToast('Account creation is available through Elaris support.')">Create account</button><button class="font-semibold text-[#746a61]" onclick="showToast('Support: hello@elaris.co')">Support</button>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="customer" class="screen">
+    <div class="mx-auto max-w-6xl px-5 py-12">
+     <div class="flex items-center justify-between">
+      <div>
+       <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Your Elaris</p>
+       <h1 data-template-id="customer-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">Good morning, Liya.</h1>
+      </div><button class="btn-secondary" onclick="showScreen('home')">Back to explore</button>
+     </div>
+     <div class="mt-9 grid gap-6 lg:grid-cols-[1fr_.36fr]">
+      <div>
+       <h2 class="serif text-2xl">Upcoming appointments</h2>
+       <article class="soft-card mt-5 p-6">
+        <span class="status confirmed">Confirmed</span>
+        <h3 class="serif mt-4 text-2xl">Signature Cut &amp; Style</h3>
+        <p class="mt-2 text-sm text-[#71675e]">Maison Muse · Tue, 18 Aug · 10:30 AM</p>
+        <div class="mt-6 flex gap-3">
+         <button class="btn-secondary" onclick="showToast('Select a new time from the booking page.')">Reschedule</button><button class="text-sm font-semibold text-[#a45345]" onclick="showToast('Cancellation request recorded.')">Cancel appointment</button>
+        </div>
+       </article>
+      </div>
+      <aside class="soft-card p-6">
+       <h2 class="serif text-xl">Notifications</h2>
+       <p class="mt-5 border-b border-[#eee3d8] pb-4 text-sm"><b>Appointment confirmed</b><br><span class="text-[#776c62]">Maison Muse · 18 Aug</span></p>
+       <p class="mt-4 text-sm"><b>New nearby salon</b><br><span class="text-[#776c62]">Soleil Studio now accepts bookings.</span></p>
+      </aside>
+     </div>
+    </div>
+   </section>
+   <section id="admin" class="screen portal">
+    <div class="flex min-h-[inherit]">
+     <aside id="admin-sidebar" class="portal-sidebar flex w-[275px] shrink-0 flex-col p-5">
+      <div class="flex items-center justify-between">
+       <img data-template-id="admin-logo" class="canva-image h-12 w-12 rounded-none object-contain" loading="lazy" src="canva://MAHSijQnV_4/1" alt="Elaris gold flame and lotus logo"><button class="lg:hidden" onclick="togglePortalMenu('admin',false)"><i data-lucide="x"></i></button>
+      </div>
+      <p data-template-id="admin-sidebar-label" class="canva-text mt-2 text-xs uppercase tracking-widest text-[#c9a27c]" style="color: rgb(201, 162, 124); font-weight: 700; font-style: normal; font-size: 16px;">Admin workspace</p>
+      <nav class="mt-8 space-y-1">
+       <button class="portal-link active" data-admin-nav="overview" onclick="portalView('admin','overview',this)"><i data-lucide="layout-dashboard"></i>Overview</button><button class="portal-link" data-admin-nav="appointments" onclick="portalView('admin','appointments',this)"><i data-lucide="calendar-check"></i>Appointments</button><button class="portal-link" data-admin-nav="salons" onclick="portalView('admin','salons',this)"><i data-lucide="store"></i>Salon approvals</button><button class="portal-link" data-admin-nav="services" onclick="portalView('admin','services',this)"><i data-lucide="scissors"></i>Services</button><button class="portal-link" data-admin-nav="users" onclick="portalView('admin','users',this)"><i data-lucide="users"></i>Users</button><button class="portal-link" data-admin-nav="analytics" onclick="portalView('admin','analytics',this)"><i data-lucide="chart-no-axes-combined"></i>Analytics</button>
+      </nav><button class="mt-auto portal-link" onclick="showScreen('home')"><i data-lucide="log-out"></i>Exit portal</button>
+     </aside>
+     <div class="min-w-0 flex-1">
+      <header class="flex items-center justify-between border-b border-[#e7ddd2] bg-[#fffdf9] px-5 py-4 lg:px-8">
+       <button class="lg:hidden" onclick="togglePortalMenu('admin',true)"><i data-lucide="menu"></i></button><label class="relative hidden max-w-md flex-1 lg:block"><span class="sr-only">Search admin records</span><i data-lucide="search" class="absolute left-3 top-3 h-4 w-4 text-[#8a7d71]"></i><input class="w-full rounded-full border border-[#dfd4c8] bg-[#fbf8f3] py-2 pl-9 pr-3 text-sm outline-none" placeholder="Search salons, customers, bookings…"></label>
+       <div class="ml-auto flex items-center gap-4">
+        <button aria-label="Notifications"><i data-lucide="bell"></i></button><span class="grid h-9 w-9 place-items-center rounded-full bg-[#e8d3bd] text-sm font-bold">A</span>
+       </div>
+      </header>
+      <div class="p-5 lg:p-8">
+       <div id="admin-overview" class="portal-view active">
+        <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Platform performance</p>
+        <h1 data-template-id="admin-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">A clear view of Elaris.</h1>
+        <div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Total salons</p>
+          <p class="serif mt-2 text-3xl">248</p>
+          <p class="mt-2 text-xs text-[#437a58]">+12 this month</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Customers</p>
+          <p class="serif mt-2 text-3xl">50,284</p>
+          <p class="mt-2 text-xs text-[#437a58]">+8.4%</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Bookings</p>
+          <p class="serif mt-2 text-3xl">1,826</p>
+          <p class="mt-2 text-xs text-[#437a58]">+14.2%</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Revenue</p>
+          <p class="serif mt-2 text-3xl">1.24M ETB</p>
+          <p class="mt-2 text-xs text-[#437a58]">+10.1%</p>
+         </div>
+        </div>
+        <div class="mt-7 grid gap-6 xl:grid-cols-[1.3fr_.7fr]">
+         <section class="soft-card p-6">
+          <div class="flex justify-between">
+           <h2 class="serif text-xl">Booking volume</h2><span class="text-sm text-[#746a61]">Last 7 days</span>
+          </div>
+          <div class="chart-bars mt-6">
+           <span style="height:35%"></span><span style="height:52%"></span><span style="height:45%"></span><span style="height:70%"></span><span style="height:60%"></span><span style="height:85%"></span><span style="height:76%"></span>
+          </div>
+         </section>
+         <section class="soft-card p-6">
+          <h2 class="serif text-xl">System alerts</h2>
+          <div class="mt-5 space-y-4 text-sm">
+           <p><b>8 salons await review</b><br><span class="text-[#746a61]">New registrations pending.</span></p>
+           <p class="border-t border-[#eee3d8] pt-4"><b>2 service reports</b><br><span class="text-[#746a61]">Require moderation.</span></p><button class="text-sm font-semibold text-[#a16e45]" onclick="portalView('admin','salons',document.querySelector('[data-admin-nav=salons]'))">Review queue →</button>
+          </div>
+         </section>
+        </div>
+       </div>
+       <div id="admin-appointments" class="portal-view">
+        <h1 class="serif text-3xl">Appointments</h1>
+        <div class="mt-6 flex flex-wrap gap-2">
+         <button class="btn-primary status-filter" onclick="filterAppointments('all',this)">All</button><button class="btn-secondary status-filter" onclick="filterAppointments('pending',this)">Pending</button><button class="btn-secondary status-filter" onclick="filterAppointments('confirmed',this)">Confirmed</button><button class="btn-secondary status-filter" onclick="filterAppointments('completed',this)">Completed</button><button class="btn-secondary status-filter" onclick="filterAppointments('cancelled',this)">Cancelled</button>
+        </div>
+        <div class="soft-card mt-6 overflow-x-auto">
+         <table class="w-full min-w-[680px] text-left text-sm">
+          <thead class="border-b border-[#e8dfd4] text-[#746a61]">
+           <tr>
+            <th class="p-4">Customer</th>
+            <th>Salon</th>
+            <th>Service</th>
+            <th>Time</th>
+            <th>Status</th>
+           </tr>
+          </thead>
+          <tbody id="appointment-table">
+           <tr data-status="confirmed">
+            <td class="p-4 font-semibold">Liya M.</td>
+            <td>Maison Muse</td>
+            <td>Cut &amp; Style</td>
+            <td>10:30 AM</td>
+            <td><span class="status confirmed">Confirmed</span></td>
+           </tr>
+           <tr data-status="pending">
+            <td class="p-4 font-semibold">Dawit K.</td>
+            <td>Soleil Studio</td>
+            <td>Glow Facial</td>
+            <td>12:00 PM</td>
+            <td><span class="status pending">Pending</span></td>
+           </tr>
+           <tr data-status="completed">
+            <td class="p-4 font-semibold">Mekdes A.</td>
+            <td>Maison Muse</td>
+            <td>Color</td>
+            <td>2:30 PM</td>
+            <td><span class="status completed">Completed</span></td>
+           </tr>
+           <tr data-status="cancelled">
+            <td class="p-4 font-semibold">Sara G.</td>
+            <td>Grooming Room</td>
+            <td>Beard Ritual</td>
+            <td>4:00 PM</td>
+            <td><span class="status cancelled">Cancelled</span></td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div>
+       <div id="admin-salons" class="portal-view">
+        <h1 class="serif text-3xl">Salon approval queue</h1>
+        <div class="mt-6 grid gap-4">
+         <article class="soft-card flex flex-wrap items-center justify-between gap-4 p-5">
+          <div>
+           <h2 class="font-semibold">Luna House Studio</h2>
+           <p class="mt-1 text-sm text-[#746a61]">Kazanchis · Hair &amp; makeup · Submitted today</p>
+          </div>
+          <div class="flex gap-2">
+           <button class="btn-secondary" onclick="showToast('Salon profile opened for review.')">Review</button><button class="btn-primary" onclick="approveSalon(this)">Approve</button>
+          </div>
+         </article>
+         <article class="soft-card flex flex-wrap items-center justify-between gap-4 p-5">
+          <div>
+           <h2 class="font-semibold">Mira Nail Atelier</h2>
+           <p class="mt-1 text-sm text-[#746a61]">Bole · Nail care · Submitted yesterday</p>
+          </div>
+          <div class="flex gap-2">
+           <button class="btn-secondary" onclick="showToast('Salon profile opened for review.')">Review</button><button class="btn-primary" onclick="approveSalon(this)">Approve</button>
+          </div>
+         </article>
+        </div>
+       </div>
+       <div id="admin-services" class="portal-view">
+        <div class="flex items-center justify-between">
+         <h1 class="serif text-3xl">Service management</h1><button class="btn-primary" onclick="showToast('New service form is ready for details.')">Add service</button>
+        </div>
+        <div class="soft-card mt-6 divide-y divide-[#eee3d8]">
+         <div class="flex items-center justify-between p-5">
+          <span><b>Signature Cut &amp; Style</b><small class="ml-2 text-[#746a61]">Hair · 60 min</small></span><button class="btn-secondary service-toggle" onclick="toggleService(this)">Enabled</button>
+         </div>
+         <div class="flex items-center justify-between p-5">
+          <span><b>Glow Facial</b><small class="ml-2 text-[#746a61]">Skincare · 60 min</small></span><button class="btn-secondary service-toggle" onclick="toggleService(this)">Enabled</button>
+         </div>
+        </div>
+       </div>
+       <div id="admin-users" class="portal-view">
+        <h1 class="serif text-3xl">User management</h1>
+        <div class="mt-6 grid gap-4 sm:grid-cols-3">
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Customers</p>
+          <p class="serif mt-2 text-3xl">50,284</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Salon owners</p>
+          <p class="serif mt-2 text-3xl">248</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Admins</p>
+          <p class="serif mt-2 text-3xl">6</p>
+         </div>
+        </div>
+        <div class="soft-card mt-6 p-5">
+         <p class="font-semibold">Recent users</p>
+         <div class="mt-4 space-y-4 text-sm">
+          <div class="flex justify-between border-b border-[#eee3d8] pb-3">
+           <span>Abel T. · Customer</span><button class="text-[#a16e45]" onclick="showToast('User profile opened.')">Manage</button>
+          </div>
+          <div class="flex justify-between">
+           <span>Hana A. · Salon owner</span><button class="text-[#a16e45]" onclick="showToast('User profile opened.')">Manage</button>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div id="admin-analytics" class="portal-view">
+        <h1 class="serif text-3xl">Analytics</h1>
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+         <section class="soft-card p-6">
+          <h2 class="serif text-xl">Peak booking hours</h2>
+          <div class="chart-bars mt-5">
+           <span style="height:25%"></span><span style="height:46%"></span><span style="height:85%"></span><span style="height:72%"></span><span style="height:52%"></span>
+          </div>
+          <p class="mt-3 text-sm text-[#746a61]">Peak demand: 11 AM–2 PM</p>
+         </section>
+         <section class="soft-card p-6">
+          <h2 class="serif text-xl">Service popularity</h2>
+          <div class="mt-5 space-y-4 text-sm">
+           <p>Cut &amp; Style <span class="float-right font-bold">38%</span></p>
+           <div class="h-2 rounded bg-[#eee5d8]">
+            <div class="h-2 w-[38%] rounded bg-[#a16e45]"></div>
+           </div>
+           <p>Color <span class="float-right font-bold">27%</span></p>
+           <div class="h-2 rounded bg-[#eee5d8]">
+            <div class="h-2 w-[27%] rounded bg-[#a16e45]"></div>
+           </div>
+          </div>
+         </section>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="owner" class="screen portal">
+    <div class="flex min-h-[inherit]">
+     <aside id="owner-sidebar" class="portal-sidebar flex w-[275px] shrink-0 flex-col p-5">
+      <div class="flex items-center justify-between">
+       <img data-template-id="owner-logo" class="canva-image h-12 w-12 rounded-none object-contain" loading="lazy" src="canva://MAHSijQnV_4/1" alt="Elaris gold flame and lotus logo"><button class="lg:hidden" onclick="togglePortalMenu('owner',false)"><i data-lucide="x"></i></button>
+      </div>
+      <p data-template-id="owner-sidebar-label" class="canva-text mt-2 text-xs uppercase tracking-widest text-[#c9a27c]" style="color: rgb(201, 162, 124); font-weight: 700; font-style: normal; font-size: 16px;">Salon workspace</p>
+      <nav class="mt-8 space-y-1">
+       <button class="portal-link active" data-owner-nav="overview" onclick="portalView('owner','overview',this)"><i data-lucide="layout-dashboard"></i>Overview</button><button class="portal-link" data-owner-nav="schedule" onclick="portalView('owner','schedule',this)"><i data-lucide="calendar-days"></i>Schedule</button><button class="portal-link" data-owner-nav="staff" onclick="portalView('owner','staff',this)"><i data-lucide="users"></i>Staff</button><button class="portal-link" data-owner-nav="services" onclick="portalView('owner','services',this)"><i data-lucide="scissors"></i>Services</button><button class="portal-link" data-owner-nav="gallery" onclick="portalView('owner','gallery',this)"><i data-lucide="images"></i>Gallery</button><button class="portal-link" data-owner-nav="reviews" onclick="portalView('owner','reviews',this)"><i data-lucide="star"></i>Reviews</button><button class="portal-link" data-owner-nav="profile" onclick="portalView('owner','profile',this)"><i data-lucide="settings"></i>Business profile</button>
+      </nav><button class="mt-auto portal-link" onclick="showScreen('home')"><i data-lucide="log-out"></i>Exit portal</button>
+     </aside>
+     <div class="min-w-0 flex-1">
+      <header class="flex items-center justify-between border-b border-[#e7ddd2] bg-[#fffdf9] px-5 py-4 lg:px-8">
+       <button class="lg:hidden" onclick="togglePortalMenu('owner',true)"><i data-lucide="menu"></i></button>
+       <p class="hidden text-sm text-[#746a61] lg:block">Maison Muse · Tuesday, 18 August</p>
+       <div class="ml-auto flex items-center gap-4">
+        <button aria-label="Notifications"><i data-lucide="bell"></i></button><span class="grid h-9 w-9 place-items-center rounded-full bg-[#e8d3bd] text-sm font-bold">M</span>
+       </div>
+      </header>
+      <div class="p-5 lg:p-8">
+       <div id="owner-overview" class="portal-view active">
+        <p class="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Maison Muse</p>
+        <h1 data-template-id="owner-heading" class="canva-text serif mt-3" style="color: rgb(36, 32, 29); font-weight: 600; font-style: normal; font-size: 32px;">Good morning, Maison Muse.</h1>
+        <div class="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Today's appointments</p>
+          <p class="serif mt-2 text-3xl">14</p>
+          <p class="mt-2 text-xs text-[#437a58]">3 awaiting confirmation</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Weekly revenue</p>
+          <p class="serif mt-2 text-3xl">38.4k</p>
+          <p class="mt-2 text-xs text-[#437a58]">+12% vs last week</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">New reviews</p>
+          <p class="serif mt-2 text-3xl">8</p>
+          <p class="mt-2 text-xs text-[#746a61]">4.9 average rating</p>
+         </div>
+         <div class="stat">
+          <p class="text-sm text-[#746a61]">Occupancy</p>
+          <p class="serif mt-2 text-3xl">76%</p>
+          <p class="mt-2 text-xs text-[#746a61]">Peak: 11 AM–2 PM</p>
+         </div>
+        </div>
+        <div class="mt-7 grid gap-6 xl:grid-cols-[1.2fr_.8fr]">
+         <section class="soft-card p-6">
+          <div class="flex justify-between">
+           <h2 class="serif text-xl">Today’s schedule</h2><button class="text-sm font-semibold text-[#a16e45]" onclick="portalView('owner','schedule',document.querySelector('[data-owner-nav=schedule]'))">Open schedule →</button>
+          </div>
+          <div class="mt-5 space-y-4">
+           <div class="flex gap-4 border-l-2 border-[#a16e45] pl-4">
+            <b class="w-20">10:30</b><span><b>Liya M.</b><br><small class="text-[#746a61]">Cut &amp; Style · Sofia</small></span>
+           </div>
+           <div class="flex gap-4 border-l-2 border-[#d8cdbf] pl-4">
+            <b class="w-20">12:00</b><span><b>Dawit K.</b><br><small class="text-[#746a61]">Glow Facial · Eden</small></span>
+           </div>
+          </div>
+         </section>
+         <section class="soft-card p-6">
+          <h2 class="serif text-xl">Booking insight</h2>
+          <p class="mt-5 text-3xl font-semibold">11 AM</p>
+          <p class="mt-1 text-sm text-[#746a61]">Your busiest hour this week.</p>
+          <div class="mt-6 border-t border-[#eee3d8] pt-5">
+           <p class="text-sm"><b>Top service</b><br><span class="text-[#746a61]">Signature Cut &amp; Style · 38 bookings</span></p>
+           <p class="mt-4 text-sm"><b>No-show rate</b><br><span class="text-[#437a58]">2.1% · healthy range</span></p>
+          </div>
+         </section>
+        </div>
+       </div>
+       <div id="owner-schedule" class="portal-view">
+        <div class="flex items-center justify-between">
+         <h1 class="serif text-3xl">Appointment schedule</h1><button class="btn-secondary" onclick="showToast('Calendar view selected.')">Calendar view</button>
+        </div>
+        <div class="soft-card mt-6 divide-y divide-[#eee3d8]">
+         <div class="flex flex-wrap items-center justify-between gap-3 p-5">
+          <div>
+           <b>10:30 AM · Liya M.</b>
+           <p class="mt-1 text-sm text-[#746a61]">Signature Cut &amp; Style · Sofia A.</p>
+          </div>
+          <div class="flex gap-2">
+           <button class="btn-primary" onclick="scheduleAction(this,'Confirmed')">Confirm</button><button class="btn-secondary" onclick="scheduleAction(this,'Reschedule requested')">Reschedule</button>
+          </div>
+         </div>
+         <div class="flex flex-wrap items-center justify-between gap-3 p-5">
+          <div>
+           <b>12:00 PM · Dawit K.</b>
+           <p class="mt-1 text-sm text-[#746a61]">Glow Facial · Eden T.</p>
+          </div>
+          <div class="flex gap-2">
+           <button class="btn-primary" onclick="scheduleAction(this,'Confirmed')">Confirm</button><button class="btn-secondary" onclick="scheduleAction(this,'Cancelled')">Cancel</button>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div id="owner-staff" class="portal-view">
+        <div class="flex items-center justify-between">
+         <h1 class="serif text-3xl">Staff management</h1><button class="btn-primary" onclick="showToast('Add staff member flow is ready.')">Add staff</button>
+        </div>
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+         <article class="soft-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-full bg-[#e7d4bf] font-semibold">
+           S
+          </div>
+          <h2 class="mt-4 font-semibold">Sofia A.</h2>
+          <p class="mt-1 text-sm text-[#746a61]">Cut &amp; styling</p>
+          <p class="mt-4 text-xs text-[#437a58]">Available · 9 AM–6 PM</p>
+         </article>
+         <article class="soft-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-full bg-[#d9c1ac] font-semibold">
+           A
+          </div>
+          <h2 class="mt-4 font-semibold">Aster G.</h2>
+          <p class="mt-1 text-sm text-[#746a61]">Color specialist</p>
+          <p class="mt-4 text-xs text-[#437a58]">Available · 10 AM–7 PM</p>
+         </article>
+         <article class="soft-card p-5">
+          <div class="grid h-10 w-10 place-items-center rounded-full bg-[#e9d9ca] font-semibold">
+           E
+          </div>
+          <h2 class="mt-4 font-semibold">Eden T.</h2>
+          <p class="mt-1 text-sm text-[#746a61]">Makeup artist</p>
+          <p class="mt-4 text-xs text-[#a16e45]">Away · returns Friday</p>
+         </article>
+        </div>
+       </div>
+       <div id="owner-services" class="portal-view">
+        <div class="flex items-center justify-between">
+         <h1 class="serif text-3xl">Salon services</h1><button class="btn-primary" onclick="showToast('New service details can now be added.')">Add service</button>
+        </div>
+        <div class="soft-card mt-6 divide-y divide-[#eee3d8]">
+         <div class="flex items-center justify-between p-5">
+          <span><b>Signature Cut &amp; Style</b><br><small class="text-[#746a61]">650 ETB · 60 min · Featured</small></span><button class="btn-secondary" onclick="showToast('Service editor opened.')">Edit</button>
+         </div>
+         <div class="flex items-center justify-between p-5">
+          <span><b>Dimensional Color</b><br><small class="text-[#746a61]">1,800 ETB · 150 min</small></span><button class="btn-secondary" onclick="showToast('Service editor opened.')">Edit</button>
+         </div>
+        </div>
+       </div>
+       <div id="owner-gallery" class="portal-view">
+        <div class="flex items-center justify-between">
+         <h1 class="serif text-3xl">Gallery &amp; portfolio</h1><button class="btn-primary" onclick="addGalleryItem()">Add photo</button>
+        </div>
+        <p id="gallery-count" class="mt-4 text-sm text-[#746a61]">12 published salon photos</p>
+        <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+         <img data-template-id="gallery-image-1" class="canva-image aspect-square w-full rounded-2xl object-cover" loading="lazy" src="https://images.pexels.com/photos/7750124/pexels-photo-7750124.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Bright and elegant hair salon interior featuring modern lighting and round mirrors."><img data-template-id="gallery-image-2" class="canva-image aspect-square w-full rounded-2xl object-cover" loading="lazy" src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of barber tools on a stylish wooden counter."><img data-template-id="gallery-image-3" class="canva-image aspect-square w-full rounded-2xl object-cover" loading="lazy" src="https://images.pexels.com/photos/3065209/pexels-photo-3065209.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800" alt="Close-up of a stylist curling blonde hair into glamorous curls at a salon.">
+        </div>
+       </div>
+       <div id="owner-reviews" class="portal-view">
+        <h1 class="serif text-3xl">Reviews &amp; ratings</h1>
+        <div class="mt-6 grid gap-6 lg:grid-cols-[.45fr_1fr]">
+         <section class="soft-card p-6">
+          <p class="serif text-5xl">4.9</p>
+          <p class="mt-2 text-[#a16e45]">★★★★★</p>
+          <p class="mt-2 text-sm text-[#746a61]">Based on 186 reviews</p>
+         </section>
+         <section class="soft-card p-6">
+          <p>“Every detail at Maison Muse is considered. My color has never looked healthier.”</p>
+          <p class="mt-4 text-sm font-semibold">Samrawit K. · ★★★★★</p><button class="mt-4 text-sm font-semibold text-[#a16e45]" onclick="showToast('Reply composer opened.')">Reply to review →</button>
+         </section>
+        </div>
+       </div>
+       <div id="owner-profile" class="portal-view">
+        <h1 class="serif text-3xl">Business profile</h1>
+        <form class="soft-card mt-6 grid gap-5 p-6 md:grid-cols-2" onsubmit="saveProfile(event)">
+         <div>
+          <label for="salon-name" class="mb-2 block text-sm font-semibold">Salon name</label><input id="salon-name" value="Maison Muse" class="w-full rounded-xl border border-[#ded3c7] bg-white px-4 py-3">
+         </div>
+         <div>
+          <label for="salon-phone" class="mb-2 block text-sm font-semibold">Contact phone</label><input id="salon-phone" value="+251 11 555 0188" class="w-full rounded-xl border border-[#ded3c7] bg-white px-4 py-3">
+         </div>
+         <div>
+          <label for="salon-hours" class="mb-2 block text-sm font-semibold">Opening hours</label><input id="salon-hours" value="Mon–Sat · 9 AM–8 PM" class="w-full rounded-xl border border-[#ded3c7] bg-white px-4 py-3">
+         </div>
+         <div>
+          <label for="salon-social" class="mb-2 block text-sm font-semibold">Instagram</label><input id="salon-social" value="@maisonmuse" class="w-full rounded-xl border border-[#ded3c7] bg-white px-4 py-3">
+         </div><button data-template-id="profile-save-button" class="canva-button btn-primary md:col-span-2" type="submit" style="background: rgb(41, 35, 31); color: rgb(255, 255, 255); font-weight: 600; font-style: normal; font-size: 16px;">Save business profile</button>
+        </form>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer id="public-footer" class="border-t border-[#e8dfd4] bg-[#f2ebe1]">
+   <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-9 lg:px-8">
+    <div>
+     <img data-template-id="footer-logo" class="canva-image h-14 w-14 rounded-none object-contain" loading="lazy" src="canva://MAHSijQnV_4/1" alt="Elaris gold flame and lotus logo">
+     <p data-template-id="footer-tagline" class="canva-text mt-2 text-sm" style="color: rgb(102, 92, 83); font-weight: 400; font-style: normal; font-size: 14px;">Making time for beauty feel beautifully simple.</p>
+    </div><button class="text-sm font-semibold text-[#a16e45]" onclick="showScreen('role-entry')">Elaris portal →</button>
+   </div>
+  </footer>
+  <div id="toast" class="toast fixed bottom-5 left-1/2 z-[70] w-[min(92%,440px)] -translate-x-1/2 rounded-xl bg-[#29231f] px-5 py-4 text-center text-sm text-white shadow-xl" role="status"></div>
+  <script src="/_sdk/a051f9537983733d.editing_sdk.js" integrity="sha512-IWn3eBHnVt7zQ0Rp79J72qSgJoLbskCA9lcfY4retf+5km4LjuhSHpvx+182KCHmEZ6EbJtWqVsybpV8Sd8PQQ=="></script>
+  <script>
+    let selectedService='', selectedPrice='', galleryTotal=12;
+    function showScreen(id){
+      document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const portal=['admin','owner'].includes(id);
+      document.getElementById('public-header').classList.toggle('hidden',portal);
+      document.getElementById('public-footer').classList.toggle('hidden',portal);
+      window.scrollTo({top:0,behavior:'smooth'}); if(window.lucide) lucide.createIcons();
+    }
+    function showToast(message){const el=document.getElementById('toast');el.textContent=message;el.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>el.classList.remove('show'),3000)}
+    function bookService(service){selectedService=service;selectedPrice=service==='Dimensional Color'?'1,800 ETB':service==='Glow Facial'?'950 ETB':'650 ETB';showScreen('booking');document.getElementById('booking-summary').textContent=selectedService+' · '+selectedPrice}
+    function chooseBooking(btn,service,price){document.querySelectorAll('.booking-service').forEach(x=>x.classList.toggle('selected',x===btn));selectedService=service;selectedPrice=price;document.getElementById('booking-summary').textContent=service+' · '+price}
+    function completeBooking(){if(!selectedService){showToast('Please choose a service first.');return}showToast('Your appointment has been reserved.');showScreen('customer')}
+    function enterPortal(role){showScreen(role)}
+    function togglePortalMenu(role,open){document.getElementById(role+'-sidebar').classList.toggle('open',open)}
+    function portalView(role,view,button){document.querySelectorAll('#'+role+' .portal-view').forEach(el=>el.classList.toggle('active',el.id===role+'-'+view));document.querySelectorAll('#'+role+' [data-'+role+'-nav]').forEach(el=>el.classList.toggle('active',el===button));togglePortalMenu(role,false);window.scrollTo({top:0,behavior:'smooth'})}
+    function filterAppointments(status,btn){document.querySelectorAll('.status-filter').forEach(b=>{b.className='btn-secondary status-filter'});btn.className='btn-primary status-filter';document.querySelectorAll('#appointment-table tr').forEach(row=>row.classList.toggle('hidden',status!=='all'&&row.dataset.status!==status))}
+    function approveSalon(btn){btn.textContent='Approved';btn.disabled=true;btn.classList.add('opacity-60');showToast('Salon approved and notified.')}
+    function toggleService(btn){const enabled=btn.textContent==='Enabled';btn.textContent=enabled?'Disabled':'Enabled';btn.classList.toggle('text-[#a45345]',enabled);showToast('Service availability updated.')}
+    function scheduleAction(btn,label){btn.closest('.flex.flex-wrap').querySelector('b').textContent=label;showToast('Appointment '+label.toLowerCase()+'.')}
+    function addGalleryItem(){galleryTotal++;document.getElementById('gallery-count').textContent=galleryTotal+' published salon photos';showToast('Gallery is ready for a new salon photo.')}
+    function saveProfile(event){event.preventDefault();showToast('Business profile saved.')}
+    document.addEventListener('DOMContentLoaded',()=>lucide.createIcons());
+  </script>
+ 
+</body></html>
