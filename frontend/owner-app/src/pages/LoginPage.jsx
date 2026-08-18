@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, clearError } from './store.js';
+import { login, clearError } from '../store.js';
 import { Button, SoftCard } from '@elaris/shared-ui';
 
 export default function LoginPage() {
