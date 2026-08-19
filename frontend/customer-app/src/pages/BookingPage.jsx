@@ -24,6 +24,13 @@ export default function BookingPage() {
   const [submitting, setSubmitting] = useState(false);
   const [toast, setToast] = useState({ show: false, message: '' });
 
+  const FALLBACK_SALONS = [
+    { _id: 'kasachis', name: 'Kasachis', location: { area: 'Kasachis' } },
+    { _id: 'old-bole-airport', name: 'Old Bole Airport', location: { area: 'Old Bole Airport' } },
+    { _id: 'dembel-city', name: 'Dembel City', location: { area: 'Dembel City' } },
+    { _id: 'bole', name: 'Bole', location: { area: 'Bole' } },
+  ];
+
   const [salonId, setSalonId] = useState(params.get('salonId') || '');
   const [serviceId, setServiceId] = useState(params.get('serviceId') || '');
   const [staffId, setStaffId] = useState('');
@@ -31,10 +38,23 @@ export default function BookingPage() {
   const [startTime, setStartTime] = useState('');
 
   useEffect(() => {
-    api.get('/salons').then(({ data }) => {
-      setSalons(data.data.salons);
-      setLoading(false);
-    });
+    const load = async () => {
+      try {
+        const { data } = await api.get('/salons');
+        const fetched = data?.data?.salons || [];
+        if (fetched.length) {
+          setSalons(fetched);
+        } else {
+          setSalons(FALLBACK_SALONS);
+        }
+      } catch (err) {
+        // If API fails or returns no salons, fall back to the sample places
+        setSalons(FALLBACK_SALONS);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
   }, []);
 
   useEffect(() => {
@@ -77,6 +97,29 @@ export default function BookingPage() {
       setTimeout(() => navigate('/dashboard'), 1200);
     } catch (err) {
       setToast({ show: true, message: err.response?.data?.message || 'Booking failed.' });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handlePay = async () => {
+    if (!user) {
+      navigate('/login?redirect=/book');
+      return;
+    }
+    if (!salonId || !serviceId || !staffId || !date || !startTime) {
+      setToast({ show: true, message: 'Please complete all booking steps.' });
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      // simulate a brief payment flow
+      await new Promise((r) => setTimeout(r, 900));
+      setToast({ show: true, message: 'Payment simulated — Booking confirmed.' });
+      setTimeout(() => navigate('/dashboard'), 1200);
+    } catch (err) {
+      setToast({ show: true, message: 'Payment failed.' });
     } finally {
       setSubmitting(false);
     }
@@ -184,9 +227,14 @@ export default function BookingPage() {
           </p>
         </div>
 
-        <Button variant="luxury" className="mt-6" onClick={handleBook} disabled={submitting}>
-          {submitting ? 'Reserving...' : 'Reserve appointment'}
-        </Button>
+        <div className="flex gap-3 mt-6">
+          <Button variant="luxury" onClick={handleBook} disabled={submitting}>
+            {submitting ? 'Reserving...' : 'Reserve appointment'}
+          </Button>
+          <Button variant="secondary" onClick={handlePay} disabled={submitting}>
+            Pay now
+          </Button>
+        </div>
         {!user ? (
           <p className="mt-4 text-sm text-[#746a61]">
             <Link to="/login" className="text-[#a16e45]">Sign in</Link> to complete your booking.
