@@ -31,11 +31,60 @@ export default function BookingPage() {
     { _id: 'bole', name: 'Bole', location: { area: 'Bole' } },
   ];
 
+  const FALLBACK_SERVICES = {
+    kasachis: [
+      { _id: 's1', name: 'Classic Haircut', price: 120 },
+      { _id: 's2', name: 'Blowdry', price: 80 },
+      { _id: 's3', name: 'Keratin Treatment', price: 450 },
+    ],
+    'old-bole-airport': [
+      { _id: 's4', name: 'Express Cut', price: 90 },
+      { _id: 's5', name: 'Color Touch', price: 300 },
+    ],
+    'dembel-city': [
+      { _id: 's6', name: 'Luxury Cut', price: 200 },
+      { _id: 's7', name: 'Wedding Style', price: 800 },
+    ],
+    bole: [
+      { _id: 's8', name: 'Trim & Style', price: 100 },
+      { _id: 's9', name: 'Deep Conditioning', price: 150 },
+    ],
+  };
+
+  const FALLBACK_STAFF = {
+    kasachis: [
+      { _id: 'st1', name: 'Sofia', specialization: 'Haircut' },
+      { _id: 'st2', name: 'Marta', specialization: 'Blowdry' },
+    ],
+    'old-bole-airport': [
+      { _id: 'st3', name: 'Daniel', specialization: 'Color' },
+      { _id: 'st4', name: 'Liya', specialization: 'Styling' },
+    ],
+    'dembel-city': [
+      { _id: 'st5', name: 'Hanna', specialization: 'Luxury' },
+      { _id: 'st6', name: 'Abel', specialization: 'Cuts' },
+    ],
+    bole: [
+      { _id: 'st7', name: 'Sam', specialization: 'Trims' },
+      { _id: 'st8', name: 'Grace', specialization: 'Treatment' },
+    ],
+  };
+
+  const DEFAULT_SLOTS = ['09:00', '09:30', '10:00', '11:00', '13:30', '15:00'];
+
   const [salonId, setSalonId] = useState(params.get('salonId') || '');
   const [serviceId, setServiceId] = useState(params.get('serviceId') || '');
   const [staffId, setStaffId] = useState('');
   const [date, setDate] = useState('');
   const [startTime, setStartTime] = useState('');
+
+  const [appointments, setAppointments] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('elaris-demo-appointments') || '[]');
+    } catch (e) {
+      return [];
+    }
+  });
 
   useEffect(() => {
     const load = async () => {
@@ -59,17 +108,39 @@ export default function BookingPage() {
 
   useEffect(() => {
     if (!salonId) return;
-    api.get(`/services/salon/${salonId}`).then(({ data }) => setServices(data.data.services));
-    api.get(`/staff/salon/${salonId}`).then(({ data }) => setStaff(data.data.staff));
+    const load = async () => {
+      try {
+        const [{ data: sData }, { data: stData }] = await Promise.all([
+          api.get(`/services/salon/${salonId}`),
+          api.get(`/staff/salon/${salonId}`),
+        ]);
+        const fetchedServices = sData?.data?.services || [];
+        const fetchedStaff = stData?.data?.staff || [];
+        setServices(fetchedServices.length ? fetchedServices : (FALLBACK_SERVICES[salonId] || []));
+        setStaff(fetchedStaff.length ? fetchedStaff : (FALLBACK_STAFF[salonId] || []));
+      } catch (err) {
+        // fallback to demo data when API unavailable
+        setServices(FALLBACK_SERVICES[salonId] || []);
+        setStaff(FALLBACK_STAFF[salonId] || []);
+      }
+    };
+    load();
   }, [salonId]);
 
   useEffect(() => {
     if (!salonId || !serviceId || !staffId || !date) return;
-    api
-      .get('/appointments/availability', {
-        params: { salonId, serviceId, staffId, date },
-      })
-      .then(({ data }) => setSlots(data.data.slots));
+    const loadSlots = async () => {
+      try {
+        const { data } = await api.get('/appointments/availability', {
+          params: { salonId, serviceId, staffId, date },
+        });
+        const fetched = data?.data?.slots || [];
+        setSlots(fetched.length ? fetched : DEFAULT_SLOTS);
+      } catch (err) {
+        setSlots(DEFAULT_SLOTS);
+      }
+    };
+    loadSlots();
   }, [salonId, serviceId, staffId, date]);
 
   const selectedService = services.find((s) => s._id === serviceId);
@@ -86,17 +157,57 @@ export default function BookingPage() {
 
     setSubmitting(true);
     try {
-      await api.post('/appointments', {
+      // Try the real API first
+      const { data } = await api.post('/appointments', {
         salonId,
         serviceId,
         staffId,
         date,
         startTime,
       });
+
+      // If API returned an appointment object use it, otherwise create a local one
+      const apiAppt = data?.data?.appointment;
+      const appointment = apiAppt || {
+        id: `local-${Date.now()}`,
+        salonId,
+        salonName: salons.find((s) => s._id === salonId)?.name || salonId,
+        serviceId,
+        serviceName: selectedService?.name || '',
+        staffId,
+        staffName: staff.find((m) => m._id === staffId)?.name || '',
+        date,
+        startTime,
+        createdAt: new Date().toISOString(),
+      };
+
+      const current = JSON.parse(localStorage.getItem('elaris-demo-appointments') || '[]');
+      current.push(appointment);
+      localStorage.setItem('elaris-demo-appointments', JSON.stringify(current));
+      setAppointments(current);
+
       setToast({ show: true, message: 'Your appointment has been reserved.' });
       setTimeout(() => navigate('/dashboard'), 1200);
     } catch (err) {
-      setToast({ show: true, message: err.response?.data?.message || 'Booking failed.' });
+      // Fallback: save appointment locally when API fails
+      const appointment = {
+        id: `local-${Date.now()}`,
+        salonId,
+        salonName: salons.find((s) => s._id === salonId)?.name || salonId,
+        serviceId,
+        serviceName: selectedService?.name || '',
+        staffId,
+        staffName: staff.find((m) => m._id === staffId)?.name || '',
+        date,
+        startTime,
+        createdAt: new Date().toISOString(),
+      };
+      const current = JSON.parse(localStorage.getItem('elaris-demo-appointments') || '[]');
+      current.push(appointment);
+      localStorage.setItem('elaris-demo-appointments', JSON.stringify(current));
+      setAppointments(current);
+
+      setToast({ show: true, message: err.response?.data?.message || 'Booking saved locally.' });
     } finally {
       setSubmitting(false);
     }
@@ -239,6 +350,20 @@ export default function BookingPage() {
           <p className="mt-4 text-sm text-[#746a61]">
             <Link to="/login" className="text-[#a16e45]">Sign in</Link> to complete your booking.
           </p>
+        ) : null}
+
+        {appointments.length > 0 ? (
+          <div className="mt-6">
+            <h3 className="serif text-lg">Your bookings (demo)</h3>
+            <ul className="mt-3 space-y-2">
+              {appointments.map((a) => (
+                <li key={a.id} className="rounded p-3 bg-white shadow">
+                  <div className="font-semibold">{a.salonName} — {a.serviceName}</div>
+                  <div className="text-sm text-[#746a61]">{a.date}{a.startTime ? ` · ${formatTime(a.startTime)}` : ''}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
         ) : null}
       </div>
 
