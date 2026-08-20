@@ -8,3 +8,4 @@ export { Logo } from './components/Logo.jsx';
 export { PortalShell } from './components/PortalShell.jsx';
 export { LoadingState } from './components/LoadingState.jsx';
 export { EmptyState } from './components/EmptyState.jsx';
+export { Modal } from './components/Modal.jsx';

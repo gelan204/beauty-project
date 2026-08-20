@@ -1,10 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { api, Button, LoadingState } from '@elaris/shared-ui';
+import { api, Button, LoadingState, Modal } from '@elaris/shared-ui';
 
 export default function HomePage() {
   const [salons, setSalons] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPlace, setSelectedPlace] = useState('');
+  const [placeSalons, setPlaceSalons] = useState([]);
+  const [placeLoading, setPlaceLoading] = useState(false);
 
   useEffect(() => {
     api
@@ -12,6 +17,16 @@ export default function HomePage() {
       .then(({ data }) => setSalons(data.data.salons.slice(0, 3)))
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!modalOpen || !selectedPlace) return;
+    setPlaceLoading(true);
+    setPlaceSalons([]);
+    api.get(`/salons?search=${encodeURIComponent(selectedPlace)}`)
+      .then(({ data }) => setPlaceSalons(data.data.salons || []))
+      .catch(() => setPlaceSalons([]))
+      .finally(() => setPlaceLoading(false));
+  }, [modalOpen, selectedPlace]);
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-7 lg:px-8 lg:py-10 rise">
@@ -66,6 +81,38 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-16">
+        <div className="flex items-end justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[.18em] text-[#a16e45]">Explore by place</p>
+            <h2 className="serif mt-3 text-2xl">Find salons by neighborhood</h2>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {['Bole','Kazanchis','Piassa','CMC','Megenagna','Sarbet','Old Airport'].map((place) => (
+            <button
+              key={place}
+              type="button"
+              className="choice text-left"
+              onClick={async () => {
+                // open modal and fetch salons inside handler below via state
+                setSelectedPlace(place);
+                setModalOpen(true);
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-xl">📍</span>
+                <div>
+                  <b>{place}</b>
+                </div>
+              </div>
+            </button>
+          ))}
+
+        </div>
+
+      </section>
+
       <section className="pb-16">
         <div className="flex items-end justify-between">
           <div>
@@ -102,6 +149,35 @@ export default function HomePage() {
           </div>
         )}
       </section>
+
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={selectedPlace}>
+        {placeLoading ? (
+          <LoadingState />
+        ) : (
+          <div className="space-y-3">
+            {placeSalons.length ? (
+              placeSalons.map((s) => (
+                <div key={s._id} className="flex items-center justify-between rounded p-3 bg-white">
+                  <div>
+                    <div className="font-semibold">{s.name}</div>
+                    <div className="text-sm text-[#746a61]">★ {s.rating?.toFixed?.() || '—'}</div>
+                  </div>
+                  <Link
+                    to={`/book?salonId=${s._id}`}
+                    className="text-sm font-semibold text-[#a16e45]"
+                    onClick={() => setModalOpen(false)}
+                  >
+                    Book now →
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <div className="p-6 text-center text-sm text-[#746a61]">No salons in {selectedPlace} yet.</div>
+            )}
+          </div>
+        )}
+      </Modal>
+
     </div>
   );
 }
