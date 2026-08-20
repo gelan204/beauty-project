@@ -77,6 +77,7 @@ export default function BookingPage() {
   const [staffId, setStaffId] = useState('');
   const [date, setDate] = useState('');
   const [startTime, setStartTime] = useState('');
+  const [hairType, setHairType] = useState('');
 
   const [appointments, setAppointments] = useState(() => {
     try {
@@ -164,7 +165,8 @@ export default function BookingPage() {
         staffId,
         date,
         startTime,
-      });
+          hairType,
+        });
 
       // If API returned an appointment object use it, otherwise create a local one
       const apiAppt = data?.data?.appointment;
@@ -178,6 +180,7 @@ export default function BookingPage() {
         staffName: staff.find((m) => m._id === staffId)?.name || '',
         date,
         startTime,
+        hairType,
         createdAt: new Date().toISOString(),
       };
 
@@ -200,6 +203,7 @@ export default function BookingPage() {
         staffName: staff.find((m) => m._id === staffId)?.name || '',
         date,
         startTime,
+        hairType,
         createdAt: new Date().toISOString(),
       };
       const current = JSON.parse(localStorage.getItem('elaris-demo-appointments') || '[]');
@@ -303,7 +307,21 @@ export default function BookingPage() {
 
         {staffId ? (
           <>
-            <h2 className="serif mt-8 text-2xl">4. Choose date & time</h2>
+            <h2 className="serif mt-8 text-2xl">4. Hair type</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {['Straight','Wavy','Curly','Coily / Kinky','Relaxed','Braided / Locs','Other'].map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  className={`choice ${hairType === type ? 'selected' : ''}`}
+                  onClick={() => setHairType(hairType === type ? '' : type)}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+
+            <h2 className="serif mt-8 text-2xl">5. Choose date & time</h2>
             <input
               type="date"
               className="mt-4 w-full rounded-xl border border-[#ded3c7] px-4 py-3"
@@ -333,7 +351,7 @@ export default function BookingPage() {
           <p className="text-sm text-[#746a61]">Your appointment</p>
           <p className="mt-2 font-semibold">
             {selectedService
-              ? `${selectedService.name} · ${formatPrice(selectedService.price)}${date && startTime ? ` · ${formatDate(date)} · ${formatTime(startTime)}` : ''}`
+              ? `${selectedService.name} · ${formatPrice(selectedService.price)}${date && startTime ? ` · ${formatDate(date)} · ${formatTime(startTime)}` : ''}${hairType ? ` · ${hairType}` : ''}`
               : 'Select options to continue.'}
           </p>
         </div>
@@ -359,7 +377,7 @@ export default function BookingPage() {
               {appointments.map((a) => (
                 <li key={a.id} className="rounded p-3 bg-white shadow">
                   <div className="font-semibold">{a.salonName} — {a.serviceName}</div>
-                  <div className="text-sm text-[#746a61]">{a.date}{a.startTime ? ` · ${formatTime(a.startTime)}` : ''}</div>
+                  <div className="text-sm text-[#746a61]">{a.date}{a.startTime ? ` · ${formatTime(a.startTime)}` : ''}{a.hairType ? ` · ${a.hairType}` : ''}</div>
                 </li>
               ))}
             </ul>

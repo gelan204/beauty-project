@@ -14,7 +14,7 @@ const populateFields = [
 ];
 
 export const createAppointment = catchAsync(async (req, res) => {
-  const { salonId, serviceId, staffId, date, startTime, notes } = req.body;
+  const { salonId, serviceId, staffId, date, startTime, notes, hairType } = req.body;
 
   const { service, endTime } = await validateBooking({
     salonId,
@@ -34,6 +34,7 @@ export const createAppointment = catchAsync(async (req, res) => {
     endTime,
     price: service.price,
     notes: notes || '',
+    hairType: hairType || '',
     status: 'pending',
   });
 

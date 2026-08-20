@@ -17,6 +17,7 @@ export default function AppointmentsPage() {
               <h3 className="serif mt-2 text-xl">{a.serviceId?.name}</h3>
               <p className="text-sm text-[#746a61]">{a.customerId?.name} · {formatDate(a.date)} · {formatTime(a.startTime)}</p>
               <p className="text-sm text-[#746a61]">{a.customerId?.phone}</p>
+              {a.hairType ? <p className="text-sm text-[#746a61]">Hair type: {a.hairType}</p> : null}
             </div>
             {a.status === 'confirmed' ? <Button onClick={() => complete(a._id)}>Mark completed</Button> : null}
           </SoftCard>

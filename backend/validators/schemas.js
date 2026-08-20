@@ -28,6 +28,7 @@ export const createAppointmentSchema = Joi.object({
     .pattern(/^([01]\d|2[0-3]):([0-5]\d)$/)
     .required(),
   notes: Joi.string().allow('').optional(),
+  hairType: Joi.string().allow('').optional(),
 });
 
 export const rescheduleSchema = Joi.object({

@@ -27,6 +27,7 @@ export default function SchedulePage() {
             <div>
               <b>{formatTime(appt.startTime)} · {appt.customerId?.name}</b>
               <p className="mt-1 text-sm text-[#746a61]">{appt.serviceId?.name} · {appt.staffId?.name}</p>
+              {appt.hairType ? <p className="mt-1 text-sm text-[#746a61]">Hair type: {appt.hairType}</p> : null}
               <StatusBadge status={appt.status} />
             </div>
             <div className="flex gap-2">

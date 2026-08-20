@@ -16,6 +16,7 @@ const appointmentSchema = new mongoose.Schema(
     },
     price: { type: Number, required: true },
     notes: { type: String, default: '' },
+    hairType: { type: String, default: '' },
   },
   { timestamps: true }
 );
