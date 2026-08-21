@@ -21,7 +21,7 @@ export default function DashboardPage() {
 
   const load = () => {
     Promise.all([
-      api.get('/appointments/mine?upcoming=true'),
+      api.get('/appointments/mine'),
       api.get('/notifications'),
     ])
       .then(([appts, notes]) => {
@@ -48,7 +48,13 @@ export default function DashboardPage() {
 
   if (loading) return <LoadingState />;
 
-  const next = appointments[0];
+  const upcomingStatuses = ['confirmed', 'in-progress', 'in_progress', 'in progress'];
+  const upcomingCount = appointments.filter((appointment) =>
+    upcomingStatuses.includes(appointment.status?.toLowerCase())
+  ).length;
+  const next = appointments.find((appointment) =>
+    ['pending', ...upcomingStatuses].includes(appointment.status?.toLowerCase())
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-5 py-12 rise">
@@ -58,6 +64,19 @@ export default function DashboardPage() {
           <h1 className="serif mt-3 text-[2rem]">Good morning, {user?.name?.split(' ')[0]}.</h1>
         </div>
         <Link to="/"><Button variant="luxury">Back to explore</Button></Link>
+      </div>
+
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <SoftCard className="p-5">
+          <p className="text-xs font-bold uppercase tracking-[.16em] text-[#a16e45]">Upcoming</p>
+          <p className="serif mt-2 text-3xl">{upcomingCount}</p>
+          <p className="mt-1 text-sm text-[#746a61]">Confirmed or in progress</p>
+        </SoftCard>
+        <SoftCard className="p-5">
+          <p className="text-xs font-bold uppercase tracking-[.16em] text-[#a16e45]">Total bookings</p>
+          <p className="serif mt-2 text-3xl">{appointments.length}</p>
+          <p className="mt-1 text-sm text-[#746a61]">All appointments</p>
+        </SoftCard>
       </div>
 
       <div className="mt-9 grid gap-6 lg:grid-cols-[1fr_.36fr]">

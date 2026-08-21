@@ -1,6 +1,11 @@
 node_modules/
 dist/
 .env
+.env.*
+*credentials*
+*secret*
+*.pem
+*.key
 backend/uploads/*
 !backend/uploads/.gitkeep
 *.log
